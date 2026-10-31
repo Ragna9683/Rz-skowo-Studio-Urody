@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rzęskowo Wołomin — Ekskluzywny Salon Urody</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="light-theme">
+
+    <!-- Background Canvas with Floating Lines -->
+    <canvas id="lines-canvas"></canvas>
+
+    <!-- 01. Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container announcement-bar__container">
+            <span><i class="fa-solid fa-gem"></i> 11 lat doświadczenia i oceną 5.0 na Booksy w Wołominie!</span>
+            <a href="https://booksy.com" target="_blank" rel="noopener" class="announcement-bar__link">
+                <i class="fa-solid fa-calendar-check"></i> Rezerwacja online Booksy
+            </a>
+        </div>
+    </div>
+
+    <!-- 02. Header & Navigation -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="#" class="logo">
+                RZĘSKOWO <span class="logo__sub">STUDIO URODY</span>
+            </a>
+
+            <nav class="nav" id="main-nav">
+                <a href="#services" class="nav__link">Usługi</a>
+                <a href="#portfolio" class="nav__link">Portfolio</a>
+                <a href="#team" class="nav__link">Zespół</a>
+                <a href="#pricing" class="nav__link">Cennik</a>
+                <a href="#contact" class="nav__link">Kontakt</a>
+            </nav>
+
+            <div class="header__actions">
+                <a href="https://booksy.com" target="_blank" rel="noopener" class="btn btn--primary">
+                    <i class="fa-solid fa-bookmark"></i> UMÓW WIZYTĘ
+                </a>
+                <button class="burger-menu" id="burger-menu-btn" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 03. Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container hero__container">
+            <div class="hero__content">
+                <span class="hero__badge"><i class="fa-solid fa-sparkles"></i> EKSKLUZYWNE STUDIO URODY</span>
+                <h1 class="hero__title">Podkreśl swoje <span class="text-accent">naturalne piękno</span></h1>
+                <p class="hero__desc">Profesjonalna stylizacja rzęs, brwi, manicure i zabiegi kosmetologiczne w Wołominie. 11 lat pasji pod kierownictwem Karoliny Suchockiej.</p>
+                <div class="hero__buttons">
+                    <a href="https://booksy.com" target="_blank" rel="noopener" class="btn btn--primary">
+                        <i class="fa-solid fa-calendar-days"></i> ZAREZERWUJ W BOOKSY
+                    </a>
+                    <a href="#portfolio" class="btn btn--outline">ZOBACZ REALIZACJE</a>
+                </div>
+            </div>
+            <div class="hero__image-box">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80" alt="Salon Rzęskowo" class="hero__img">
+            </div>
+        </div>
+    </section>
+
+    <!-- 04. Trust Bar -->
+    <section class="trust-bar">
+        <div class="container trust-bar__container">
+            <div class="trust-item">
+                <span class="trust-item__icon"><i class="fa-solid fa-star"></i></span>
+                <div>
+                    <strong>5.0 / 5.0 na Booksy</strong>
+                    <p>Ponad 365 zweryfikowanych opinii</p>
+                </div>
+            </div>
+            <div class="trust-item">
+                <span class="trust-item__icon"><i class="fa-solid fa-award"></i></span>
+                <div>
+                    <strong>11 Lat Doświadczenia</strong>
+                    <p>Certyfikowane mistrzynie beauty</p>
+                </div>
+            </div>
+            <div class="trust-item">
+                <span class="trust-item__icon"><i class="fa-solid fa-shield-halved"></i></span>
+                <div>
+                    <strong>Sterylność i Jakość</strong>
+                    <p>Materiały najwyższej klasy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05. Services Section (Clickable Cards with Filter Trigger) -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-title__sub">NASZE SPECJALIZACJE</span>
+                <h2 class="section-title__main">CZYM SIĘ ZAJMUJEMY</h2>
+                <p class="section-title__desc">Kliknij w wybraną usługę, aby zobaczyć galerię prac i cennik.</p>
+            </div>
+
+            <div class="services__grid">
+                <div class="service-card" data-service-trigger="lashes">
+                    <div class="service-card__icon"><i class="fa-solid fa-eye"></i></div>
+                    <h3>Stylizacja Rzęs</h3>
+                    <p>Metody 1:1, 2D-5D, Efekt Kim, Wet Look, lifting oraz laminacja z odżywczą keratyną.</p>
+                    <span class="service-card__link">Zobacz prace i cennik <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+                <div class="service-card" data-service-trigger="brows">
+                    <div class="service-card__icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>Stylizacja Brwi</h3>
+                    <p>Architektura, geometria, henna pudrowa, farbka oraz trwała laminacja z regulacją.</p>
+                    <span class="service-card__link">Zobacz prace i cennik <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+                <div class="service-card" data-service-trigger="nails">
+                    <div class="service-card__icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+                    <h3>Paznokcie & Pedicure</h3>
+                    <p>Manicure hybrydowy, żelowy, przedłużanie płytki, zdobienia zentangle i pedicure SPA.</p>
+                    <span class="service-card__link">Zobacz prace i cennik <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+                <div class="service-card" data-service-trigger="makeup">
+                    <div class="service-card__icon"><i class="fa-solid fa-brush"></i></div>
+                    <h3>Makijaż & Twarz</h3>
+                    <p>Makijaż wieczorowy, ślubny, próbny oraz specjalistyczne zabiegi pielęgnacyjne twarzy.</p>
+                    <span class="service-card__link">Zobacz prace i cennik <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06. Portfolio Section (Rich Photos) -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-title__sub">GALERIA REALIZACJI</span>
+                <h2 class="section-title__main">EFEKTY NASZEJ PRACY</h2>
+            </div>
+
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Wszystkie</button>
+                <button class="filter-btn" data-filter="lashes">Rzęsy</button>
+                <button class="filter-btn" data-filter="brows">Brwi</button>
+                <button class="filter-btn" data-filter="nails">Paznokcie</button>
+                <button class="filter-btn" data-filter="makeup">Makijaż</button>
+            </div>
+
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Javascript will load 16 photos here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 07. Team Section (Interactive Profiles) -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-title__sub">NASZ ZESPÓŁ</span>
+                <h2 class="section-title__main">POZNAJ NASZE MISTRZYNIE</h2>
+                <p class="section-title__desc">Kliknij w profil stylistki, aby przeczytać o jej doświadczeniu i certyfikatach.</p>
+            </div>
+
+            <div class="team__grid">
+                <div class="team-card" data-team-id="1">
+                    <div class="team-card__image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Karolina Suchocka">
+                    </div>
+                    <div class="team-card__info">
+                        <h3>Karolina Suchocka</h3>
+                        <span class="team-card__role">Założycielka & Master Stylist</span>
+                        <p>11 lat doświadczenia, instruktorka stylizacji rzęs i brwi.</p>
+                        <button class="btn btn--small btn--outline">Zobacz Profil</button>
+                    </div>
+                </div>
+
+                <div class="team-card" data-team-id="2">
+                    <div class="team-card__image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80" alt="Paulina Nowak">
+                    </div>
+                    <div class="team-card__info">
+                        <h3>Paulina Nowak</h3>
+                        <span class="team-card__role">Senior Nail Artist</span>
+                        <p>Specjalistka manicure hybrydowego, kombinowanego i pedicure SPA.</p>
+                        <button class="btn btn--small btn--outline">Zobacz Profil</button>
+                    </div>
+                </div>
+
+                <div class="team-card" data-team-id="3">
+                    <div class="team-card__image">
+                        <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=800&q=80" alt="Martyna Wiśniewska">
+                    </div>
+                    <div class="team-card__info">
+                        <h3>Martyna Wiśniewska</h3>
+                        <span class="team-card__role">Brow & Lash Stylist</span>
+                        <p>Ekspertka geometrii brwi, henny pudrowej oraz liftingu rzęs.</p>
+                        <button class="btn btn--small btn--outline">Zobacz Profil</button>
+                    </div>
+                </div>
+
+                <div class="team-card" data-team-id="4">
+                    <div class="team-card__image">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Anna Kowalczyk">
+                    </div>
+                    <div class="team-card__info">
+                        <h3>Anna Kowalczyk</h3>
+                        <span class="team-card__role">Make-up Artist & Kosmetolog</span>
+                        <p>Certyfikowana wokalistka makijażu ślubnego i zabiegów pielęgnacyjnych.</p>
+                        <button class="btn btn--small btn--outline">Zobacz Profil</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 08. Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-title__sub">TRANSPARENTNY CENNIK</span>
+                <h2 class="section-title__main">CENNIK USŁUG</h2>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="price-item" data-category="lashes">
+                    <div>
+                        <h4>Stylizacja Rzęs 1:1 (Klasyczna)</h4>
+                        <p>Czas: 1h 45min | Naturalne wydłużenie i zagęszczenie</p>
+                    </div>
+                    <span class="price-val">170 PLN</span>
+                </div>
+                <div class="price-item" data-category="lashes">
+                    <div>
+                        <h4>Stylizacja Rzęs 2D - 4D (Light Volume)</h4>
+                        <p>Czas: 2h | Puszyste i lekkie rzęsy objętościowe</p>
+                    </div>
+                    <span class="price-val">200 PLN</span>
+                </div>
+                <div class="price-item" data-category="lashes">
+                    <div>
+                        <h4>Laminacja Rzęs z Botoksem i Koloryzacją</h4>
+                        <p>Czas: 1h 15min | Odżywienie i naturalne podkręcenie</p>
+                    </div>
+                    <span class="price-val">150 PLN</span>
+                </div>
+                <div class="price-item" data-category="brows">
+                    <div>
+                        <h4>Architektura, Geometria i Henna Pudrowa Brwi</h4>
+                        <p>Czas: 50min | Precyzyjny rysunek i trwała koloryzacja</p>
+                    </div>
+                    <span class="price-val">110 PLN</span>
+                </div>
+                <div class="price-item" data-category="brows">
+                    <div>
+                        <h4>Trwała Laminacja Brwi z Regulacją</h4>
+                        <p>Czas: 1h | Ujarzmienie włosków i ułożenie kształtu</p>
+                    </div>
+                    <span class="price-val">140 PLN</span>
+                </div>
+                <div class="price-item" data-category="nails">
+                    <div>
+                        <h4>Manicure Hybrydowy (Wzmocnienie Baza)</h4>
+                        <p>Czas: 1h 20min | Opracowanie skórek + lakier hybrydowy</p>
+                    </div>
+                    <span class="price-val">130 PLN</span>
+                </div>
+                <div class="price-item" data-category="nails">
+                    <div>
+                        <h4>Przedłużanie Paznokci na Szablonie (Żel)</h4>
+                        <p>Czas: 2h 15min | Idealny kształt, dowolny kolor</p>
+                    </div>
+                    <span class="price-val">190 PLN</span>
+                </div>
+                <div class="price-item" data-category="makeup">
+                    <div>
+                        <h4>Makijaż Okolicznościowy / Wieczorowy</h4>
+                        <p>Czas: 1h 15min | Trwały makijaż z kępkami rzęs</p>
+                    </div>
+                    <span class="price-val">220 PLN</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 09. Location & Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container contact__container">
+            <div class="contact__info">
+                <span class="section-title__sub">ZAPRASZAMY DO SALONU</span>
+                <h2 class="section-title__main">ODWIEDŹ NAS W WOŁOMINIE</h2>
+                
+                <div class="contact__details">
+                    <div class="contact-item">
+                        <span class="contact-item__icon"><i class="fa-solid fa-location-dot"></i></span>
+                        <div>
+                            <strong>Adres Salonu:</strong>
+                            <p>ul. Jana Matejki 18, 05-200 Wołomin</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-item__icon"><i class="fa-solid fa-phone"></i></span>
+                        <div>
+                            <strong>Telefon / Kontakt:</strong>
+                            <p><a href="tel:+48576400258" class="phone-link">+48 576 400 258</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-item__icon"><i class="fa-solid fa-clock"></i></span>
+                        <div>
+                            <strong>Godziny Otwarcia:</strong>
+                            <p>Poniedziałek – Piątek: 09:00 – 20:00</p>
+                            <p>Sobota: 09:00 – 16:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://booksy.com" target="_blank" rel="noopener" class="btn btn--primary btn--full">
+                    <i class="fa-solid fa-calendar-check"></i> REZERWACJA ONLINE BOOKSY
+                </a>
+            </div>
+
+            <div class="contact__map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.7!2d21.25!3d52.34!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecd661d8b9e6b%3A0x6b3f7902d3cf830a!2sJana%20Matejki%2018%2C%2005-200%20Wo%C5%82omin!5e0!3m2!1spl!2spl!4v1700000000000!5m2!1spl!2spl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Footer -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__brand">
+                <a href="#" class="logo">RZĘSKOWO</a>
+                <p>© 2026 Rzęskowo Karolina Suchocka. Wszelkie prawa zastrzeżone.</p>
+            </div>
+            <div class="footer__socials">
+                <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Team Member Modal -->
+    <div class="modal" id="team-modal">
+        <div class="modal__overlay" id="team-modal-overlay"></div>
+        <div class="modal__content">
+            <button class="modal__close" id="team-modal-close">&times;</button>
+            <div class="modal__body">
+                <img src="" alt="" class="modal__image" id="team-modal-img">
+                <div class="modal__info">
+                    <h3 class="modal__title" id="team-modal-name"></h3>
+                    <span class="modal__role" id="team-modal-role"></span>
+                    <p class="modal__desc" id="team-modal-bio"></p>
+                    <div class="modal__skills">
+                        <strong>Specjalizacje & Certyfikaty:</strong>
+                        <ul id="team-modal-skills"></ul>
+                    </div>
+                    <a href="https://booksy.com" target="_blank" rel="noopener" class="btn btn--primary btn--full"><i class="fa-solid fa-calendar-check"></i> UMÓW WIZYTĘ DO TEJ STYLISTKI</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal Zoom -->
+    <div class="modal" id="image-modal">
+        <div class="modal__overlay" id="image-modal-overlay"></div>
+        <div class="modal__content modal__content--img">
+            <button class="modal__close" id="image-modal-close">&times;</button>
+            <img src="" alt="" class="modal__full-img" id="image-modal-img">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
