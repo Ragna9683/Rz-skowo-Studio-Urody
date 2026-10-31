@@ -1,9 +1,9 @@
 /* ==========================================================================
    Rzęskowo Wołomin — Core JS
-   Includes: Floating Canvas Lines, 16 Portfolio Items, Interactive Team Profiles & Filter Triggers
+   Fixed: Clickable service cards now scroll directly to the pricing section & filter portfolio
    ========================================================================== */
 
-// 1. БАЗА ДАННЫХ ПОРТФОЛИО (16 качественных реальных фотографий!)
+
 const portfolioData = [
     { id: 1, category: "lashes", title: "Stylizacja Rzęs 2D/3D", sub: "Subtelna elegancja", img: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=800&q=80" },
     { id: 2, category: "brows", title: "Laminacja Brwi", sub: "Idealny kształt i odżywienie", img: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" },
@@ -23,7 +23,7 @@ const portfolioData = [
     { id: 16, category: "makeup", title: "Pielęgnacja Twarzy", sub: "Głębokie nawilżenie", img: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" }
 ];
 
-// 2. БАЗА ДАННЫХ КОМАНДЫ (Подробности по каждому мастеру)
+
 const teamData = {
     1: {
         name: "Karolina Suchocka",
@@ -57,7 +57,6 @@ const teamData = {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* --- CANVAS ANIMATION: Плавающие плавно анимированные векторные линии --- */
     const canvas = document.getElementById('lines-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
@@ -74,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.clearRect(0, 0, width, height);
             step += 0.005;
 
-            // Красная градиентная линия
+          
             ctx.beginPath();
             ctx.lineWidth = 2;
             ctx.strokeStyle = 'rgba(155, 44, 59, 0.25)';
@@ -85,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             ctx.stroke();
 
-            // Синяя градиентная линия
+           
             ctx.beginPath();
             ctx.lineWidth = 1.5;
             ctx.strokeStyle = 'rgba(44, 82, 130, 0.2)';
@@ -138,15 +137,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* --- CLICKABLE SERVICE CARDS (LINK TO PORTFOLIO + FILTER) --- */
+    /* --- CLICKABLE SERVICE CARDS (SCROLL TO PRICING & FILTER PORTFOLIO) --- */
     document.querySelectorAll('.service-card[data-service-trigger]').forEach(card => {
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
             const filterTarget = card.dataset.serviceTrigger;
+            
+          
             const targetFilterBtn = document.querySelector(`.filter-btn[data-filter="${filterTarget}"]`);
             if (targetFilterBtn) {
                 targetFilterBtn.click();
             }
-            document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+
+        
+            const pricingSection = document.getElementById('pricing');
+            if (pricingSection) {
+                pricingSection.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 
@@ -207,5 +214,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainNav = document.getElementById('main-nav');
     if (burgerBtn && mainNav) {
         burgerBtn.addEventListener('click', () => mainNav.classList.toggle('active'));
+        
+        
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mainNav.classList.remove('active'));
+        });
     }
 });
