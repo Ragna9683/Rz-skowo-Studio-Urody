@@ -1,13 +1,11 @@
 /* ==========================================================================
-   Rzęskowo Wołomin — Mobile-First Luxury Beauty Stylesheet
-   Palette: Warm Cream (#FDFBF7), Beige (#F4ECE1), Deep Slate (#2D2B2A), Burgundy (#9B2C3B)
+   Rzęskowo Wołomin — Light Luxury Beauty (Strict Mobile First Fix)
    ========================================================================== */
 
 :root {
     --bg-main: #FDFBF7;
     --bg-section-alt: #F6F0E7;
     --bg-card: #FFFFFF;
-    --bg-card-hover: #FAF6F0;
 
     --accent-red: #9B2C3B;
     --accent-blue: #2C5282;
@@ -18,7 +16,6 @@
     --text-muted: #8C8580;
 
     --border-subtle: rgba(197, 160, 89, 0.25);
-    --border-strong: rgba(155, 44, 59, 0.4);
 
     --font-heading: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Montserrat', -apple-system, sans-serif;
@@ -26,7 +23,6 @@
     --transition: all 0.3s ease-in-out;
 }
 
-/* Global Reset & Strict Mobile Limits */
 *,
 *::before,
 *::after {
@@ -35,24 +31,22 @@
     box-sizing: border-box;
 }
 
-html {
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
     scroll-behavior: smooth;
     font-size: 16px;
-    overflow-x: hidden;
 }
 
 body.light-theme {
     background-color: var(--bg-main);
     color: var(--text-primary);
     font-family: var(--font-body);
-    line-height: 1.6;
-    position: relative;
-    width: 100%;
-    overflow-x: hidden;
-    /* Запрещает горизонтальный скролл */
+    line-height: 1.5;
 }
 
-/* Background Canvas */
 #lines-canvas {
     position: fixed;
     top: 0;
@@ -66,9 +60,9 @@ body.light-theme {
 
 .container {
     width: 100%;
-    max-width: 1240px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 16px;
     position: relative;
     z-index: 1;
 }
@@ -84,12 +78,12 @@ img {
     display: block;
 }
 
-/* 01. Announcement Bar */
+/* Announcement Bar */
 .announcement-bar {
     background: #23201F;
     color: #FDFBF7;
-    padding: 10px 0;
-    font-size: 0.8rem;
+    padding: 8px 0;
+    font-size: 0.78rem;
     position: relative;
     z-index: 10;
 }
@@ -99,7 +93,7 @@ img {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .announcement-bar__link {
@@ -107,17 +101,17 @@ img {
     font-weight: 600;
 }
 
-/* 02. Header & Nav */
+/* Header & Nav */
 .header {
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(253, 251, 247, 0.96);
-    backdrop-filter: blur(10px);
+    background: rgba(253, 251, 247, 0.98);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border-subtle);
-    padding: 14px 0;
+    padding: 12px 0;
 }
 
 .header__container {
@@ -128,9 +122,9 @@ img {
 
 .logo {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     color: var(--text-primary);
     display: flex;
     flex-direction: column;
@@ -138,31 +132,36 @@ img {
 }
 
 .logo__sub {
-    font-size: 0.6rem;
-    letter-spacing: 3px;
+    font-size: 0.55rem;
+    letter-spacing: 2.5px;
     color: var(--accent-red);
     font-family: var(--font-body);
     font-weight: 600;
-    margin-top: 3px;
+    margin-top: 2px;
 }
 
 .nav {
     display: flex;
-    gap: 24px;
+    align-items: center;
+    gap: 20px;
 }
 
 .nav__link {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--text-secondary);
 }
 
+.mobile-nav-btn {
+    display: none;
+}
+
 .header__actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .burger-menu {
@@ -172,13 +171,14 @@ img {
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
-    padding: 5px;
+    padding: 4px;
 }
 
 .burger-menu span {
-    width: 25px;
+    width: 24px;
     height: 2px;
     background-color: var(--text-primary);
+    transition: var(--transition);
 }
 
 /* Buttons */
@@ -186,13 +186,13 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 12px 24px;
-    font-size: 0.8rem;
+    gap: 6px;
+    padding: 10px 20px;
+    font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
-    border-radius: 30px;
+    border-radius: 24px;
     border: 1px solid transparent;
     cursor: pointer;
     transition: var(--transition);
@@ -212,45 +212,45 @@ img {
 }
 
 .btn--small {
-    padding: 8px 16px;
-    font-size: 0.75rem;
+    padding: 6px 14px;
+    font-size: 0.72rem;
 }
 
 .btn--full {
     width: 100%;
 }
 
-/* 03. Hero Section */
+/* Hero Section */
 .hero {
-    padding: 60px 0 40px;
+    padding: 40px 0 30px;
 }
 
 .hero__container {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 36px;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
     align-items: center;
 }
 
 .hero__badge {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     color: var(--accent-red);
     background: rgba(155, 44, 59, 0.08);
-    padding: 6px 14px;
-    border-radius: 20px;
+    padding: 4px 12px;
+    border-radius: 16px;
     border: 1px solid rgba(155, 44, 59, 0.2);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .hero__title {
     font-family: var(--font-heading);
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 500;
     line-height: 1.15;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .text-accent {
@@ -259,142 +259,139 @@ img {
 }
 
 .hero__desc {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
-    margin-bottom: 28px;
-    font-weight: 400;
+    margin-bottom: 24px;
 }
 
 .hero__buttons {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 .hero__image-box {
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 12px 30px rgba(45, 43, 42, 0.1);
-    border: 3px solid #FFF;
+    border: 2px solid #FFF;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
 }
 
-/* 04. Trust Bar */
+/* Trust Bar */
 .trust-bar {
     background: var(--bg-section-alt);
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
-    padding: 24px 0;
+    padding: 20px 0;
 }
 
 .trust-bar__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 16px;
 }
 
 .trust-item {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
 }
 
 .trust-item__icon {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--accent-red);
     flex-shrink: 0;
 }
 
 .trust-item strong {
     display: block;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--text-primary);
 }
 
 .trust-item p {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
 }
 
-/* 05. Section Titles & Services */
+/* Titles & Cards */
 .section-title {
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 30px;
 }
 
 .section-title__sub {
     display: block;
     font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     color: var(--accent-red);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .section-title__main {
     font-family: var(--font-heading);
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     font-weight: 500;
-    color: var(--text-primary);
-    line-height: 1.2;
 }
 
 .section-title__desc {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
-    margin-top: 6px;
+    margin-top: 4px;
 }
 
 .services {
-    padding: 60px 0;
+    padding: 45px 0;
 }
 
 .services__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
 }
 
 .service-card {
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
-    padding: 28px 20px;
-    border-radius: 12px;
+    padding: 24px 18px;
+    border-radius: 10px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
 }
 
 .service-card__icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--accent-red);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .service-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.6rem;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
 }
 
 .service-card p {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--text-secondary);
-    margin-bottom: 18px;
+    margin-bottom: 14px;
     flex-grow: 1;
 }
 
 .service-card__link {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 700;
     color: var(--accent-red);
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
 }
 
-/* 06. Portfolio Grid */
+/* Portfolio */
 .portfolio {
-    padding: 60px 0;
+    padding: 45px 0;
     background: var(--bg-section-alt);
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
@@ -403,8 +400,8 @@ img {
 .portfolio-filters {
     display: flex;
     justify-content: center;
-    gap: 8px;
-    margin-bottom: 28px;
+    gap: 6px;
+    margin-bottom: 24px;
     flex-wrap: wrap;
 }
 
@@ -412,10 +409,10 @@ img {
     background: #FFF;
     border: 1px solid var(--border-subtle);
     color: var(--text-secondary);
-    padding: 8px 18px;
-    font-size: 0.8rem;
+    padding: 6px 14px;
+    font-size: 0.78rem;
     font-weight: 600;
-    border-radius: 20px;
+    border-radius: 16px;
     cursor: pointer;
 }
 
@@ -427,14 +424,14 @@ img {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
 }
 
 .portfolio-item {
     position: relative;
-    height: 260px;
-    border-radius: 10px;
+    height: 240px;
+    border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
 }
@@ -452,7 +449,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 16px;
+    padding: 14px;
     color: #FFF;
     opacity: 0;
     transition: var(--transition);
@@ -462,27 +459,27 @@ img {
     opacity: 1;
 }
 
-/* 07. Team Grid */
+/* Team Grid */
 .team {
-    padding: 60px 0;
+    padding: 45px 0;
 }
 
 .team__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
 }
 
 .team-card {
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
 }
 
 .team-card__image {
-    height: 240px;
+    height: 220px;
 }
 
 .team-card__image img {
@@ -492,32 +489,32 @@ img {
 }
 
 .team-card__info {
-    padding: 20px;
+    padding: 16px;
     text-align: center;
 }
 
 .team-card__info h3 {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 .team-card__role {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     color: var(--accent-red);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .team-card__info p {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
-/* 08. Pricing & Contact */
+/* Pricing & Contact */
 .pricing {
-    padding: 60px 0;
+    padding: 45px 0;
     background: var(--bg-section-alt);
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
@@ -528,12 +525,12 @@ img {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .price-item {
     background: #FFF;
-    padding: 16px 20px;
+    padding: 14px 16px;
     border-radius: 8px;
     border: 1px solid var(--border-subtle);
     display: flex;
@@ -543,57 +540,57 @@ img {
 
 .price-item h4 {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .price-item p {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--text-muted);
 }
 
 .price-val {
     font-family: var(--font-heading);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: var(--accent-red);
     font-weight: 700;
     white-space: nowrap;
 }
 
 .contact {
-    padding: 60px 0;
+    padding: 45px 0;
 }
 
 .contact__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 36px;
+    gap: 24px;
 }
 
 .contact__details {
-    margin: 20px 0;
+    margin: 16px 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
 }
 
 .contact-item {
     display: flex;
-    gap: 14px;
+    gap: 12px;
 }
 
 .contact-item__icon {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: var(--accent-red);
 }
 
 .contact__map {
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
-    min-height: 300px;
+    min-height: 250px;
     border: 1px solid var(--border-subtle);
 }
 
-/* 09. Modals Mobile Fix */
+/* Modals */
 .modal {
     position: fixed;
     inset: 0;
@@ -601,7 +598,7 @@ img {
     display: none;
     align-items: center;
     justify-content: center;
-    padding: 16px;
+    padding: 12px;
 }
 
 .modal.active {
@@ -619,12 +616,11 @@ img {
     position: relative;
     background: #FFF;
     width: 100%;
-    max-width: 700px;
-    max-height: 90vh;
-    border-radius: 16px;
+    max-width: 650px;
+    max-height: 85vh;
+    border-radius: 12px;
     z-index: 2001;
     overflow-y: auto;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 .modal__content--img {
@@ -636,15 +632,15 @@ img {
 
 .modal__close {
     position: absolute;
-    top: 12px;
-    right: 16px;
-    background: rgba(255, 255, 255, 0.8);
+    top: 10px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.9);
     border: none;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     color: var(--text-primary);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     cursor: pointer;
     z-index: 10;
     display: flex;
@@ -661,53 +657,53 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    min-height: 250px;
+    min-height: 200px;
 }
 
 .modal__info {
-    padding: 24px;
+    padding: 20px;
 }
 
 .modal__title {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
-    margin-bottom: 4px;
+    font-size: 1.6rem;
+    margin-bottom: 2px;
 }
 
 .modal__role {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: var(--accent-red);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .modal__desc {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .modal__skills {
-    font-size: 0.8rem;
-    margin-bottom: 20px;
+    font-size: 0.78rem;
+    margin-bottom: 16px;
 }
 
 .modal__skills ul {
-    padding-left: 18px;
-    margin-top: 6px;
+    padding-left: 16px;
+    margin-top: 4px;
 }
 
 .modal__full-img {
     max-width: 100%;
     max-height: 80vh;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
-/* 10. Footer */
+/* Footer */
 .footer {
-    padding: 28px 0;
+    padding: 24px 0;
     background: #23201F;
     color: #FFF;
 }
@@ -717,7 +713,7 @@ img {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
 }
 
 .footer__brand .logo {
@@ -725,34 +721,34 @@ img {
 }
 
 .footer__brand p {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #8C8580;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 /* ==========================================================================
-   STRICT RESPONSIVE BREAKPOINTS (MOBILE FIXES)
+   STRICT MOBILE BREAKPOINTS (SCREEN FIX)
    ========================================================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 900px) {
 
     .hero__container,
     .contact__container {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 20px;
     }
 
     .trust-bar__container {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 12px;
     }
 
     .hero__title {
-        font-size: 2.8rem;
+        font-size: 2.4rem;
     }
 
     .section-title__main {
-        font-size: 2.3rem;
+        font-size: 2rem;
     }
 
     .modal__body {
@@ -762,19 +758,23 @@ img {
 
 @media (max-width: 768px) {
 
-    /* Мобильная навигация выезжает сверху */
+    /* Полное скрытие десктопной навигации */
+    .desktop-only-btn {
+        display: none !important;
+    }
+
     .nav {
         position: fixed;
-        top: 60px;
+        top: 52px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 60px);
+        height: calc(100vh - 52px);
         background: var(--bg-main);
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        padding-top: 40px;
-        gap: 20px;
+        padding-top: 30px;
+        gap: 18px;
         transition: var(--transition);
         z-index: 999;
         border-top: 1px solid var(--border-subtle);
@@ -784,23 +784,26 @@ img {
         left: 0;
     }
 
+    .mobile-nav-btn {
+        display: inline-flex;
+        margin-top: 10px;
+    }
+
     .burger-menu {
         display: flex;
     }
-
-    .header__actions .btn {
-        display: none;
-    }
-
-    /* Скрываем дублирующую кнопку в шапке на телефоне */
 
     .announcement-bar__container {
         justify-content: center;
         text-align: center;
     }
 
+    .announcement-bar span {
+        font-size: 0.72rem;
+    }
+
     .hero {
-        padding: 30px 0;
+        padding: 24px 0;
         text-align: center;
     }
 
@@ -814,27 +817,23 @@ img {
     }
 
     .hero__title {
-        font-size: 2.2rem;
+        font-size: 2.1rem;
     }
 
+    /* ВСЕ СЕТКИ НА СМАРТФОНЕ В 1 КОЛОНКУ */
     .services__grid,
     .portfolio-grid,
     .team__grid {
-        grid-template-columns: 1fr;
-        /* Ровно 1 колонка на экранах смартфонов */
+        grid-template-columns: 1fr !important;
     }
 
     .price-item {
         flex-direction: column;
         align-items: flex-start;
-        gap: 6px;
+        gap: 4px;
     }
 
     .price-val {
         align-self: flex-end;
-    }
-
-    .contact__map {
-        min-height: 250px;
     }
 }
